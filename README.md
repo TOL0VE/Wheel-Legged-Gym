@@ -23,9 +23,13 @@ Related Links:
 
 ### Code Structure ###
 1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one containing  all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  
+每个环境由一个env文件（“legged_robot.py”）和一个配置文件（“legged_robot_config.py”）定义。配置文件包含两个类：一个包含所有环境参数（“LeggedRobotCfg”），另一个包含训练参数（“LeggedRobotCfgPPo”）。
 2. Both env and config classes use inheritance.  
+env和config类都使用继承。
 3. Each non-zero reward scale specified in `cfg` will add a function with a corresponding name to the list of elements which will be summed to get the total reward.  
+在“cfg”中指定的每个非零奖励规模都将向元素列表添加一个具有相应名称的函数，这些元素将被求和以获得总奖励。
 4. Tasks must be registered using `task_registry.register(name, EnvClass, EnvConfig, TrainConfig)`. This is done in `envs/__init__.py`, but can also be done from outside of this repository.  
+任务必须使用“task_registry.register(name, EnvClass, EnvConfig, TrainConfig)”进行注册。这是在“envs/__init__.py”中完成的，但也可以从该存储库外部完成。
 
 ### Usage ###
 1. Train:  
